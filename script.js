@@ -82,3 +82,10 @@ function addMealLS(mealId) {
     const mealIds = getMealsLS();
     localStorage.setItem("mealIds", JSON.stringify([...mealIds, mealId]));
 }
+function removeMealLS(mealId) {
+    const mealIds = getMealsLS();
+    localStorage.setItem(
+        "mealIds",
+        JSON.stringify(mealIds.filter((id) => id !== mealId))
+    );
+}
