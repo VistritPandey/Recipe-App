@@ -78,3 +78,7 @@ function addMeal(mealData, random = false) {
     });
     mealsEl.appendChild(meal);
 }
+function addMealLS(mealId) {
+    const mealIds = getMealsLS();
+    localStorage.setItem("mealIds", JSON.stringify([...mealIds, mealId]));
+}
