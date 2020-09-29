@@ -93,3 +93,12 @@ function getMealsLS() {
     const mealIds = JSON.parse(localStorage.getItem("mealIds"));
     return mealIds === null ? [] : mealIds;
 }
+async function fetchFavMeals() {
+    favoriteContainer.innerHTML = "";
+    const mealIds = getMealsLS();
+    for (let i = 0; i < mealIds.length; i++) {
+        const mealId = mealIds[i];
+        meal = await getMealById(mealId);
+        addMealFav(meal);
+    }
+}
