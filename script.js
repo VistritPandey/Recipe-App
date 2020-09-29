@@ -159,3 +159,16 @@ function showMealInfo(mealData) {
     mealInfoEl.appendChild(mealEl);
     mealPopup.classList.remove("hidden");
 }
+searchBtn.addEventListener("click", async () => {
+    mealsEl.innerHTML = "";
+    const search = searchTerm.value;
+    const meals = await getMealsBySearch(search);
+    if (meals) {
+        meals.forEach((meal) => {
+            addMeal(meal);
+        });
+    }
+});
+popupCloseBtn.addEventListener("click", () => {
+    mealPopup.classList.add("hidden");
+});
